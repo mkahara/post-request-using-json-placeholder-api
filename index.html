@@ -2,6 +2,12 @@
 <html>
     <head>
         <title>Post request using JSONPlaceholder API</title>
+        <!-- Page styling -->
+        <style>
+            .post-content {
+                display: none;
+            }
+        </style>
     </head>
     <body>
         <h2>Click the button below to create a new post</h2>
@@ -23,9 +29,8 @@
              * @param {string} body
              * @param {number} 1 , a default id for the user
              */
-
-            var title = "A Top-Rated SEO Company";
-            var body = "Work with an SEO services company that has experts in digital marketing, web design, development, and PPC advertising. Coalition Technologies is the agency to help drive traffic to your website and convert those visitors into customers or qualified leads.";
+            const title = "A Top-Rated SEO Company";
+            const body = "Work with an SEO services company that has experts in digital marketing, web design, development, and PPC advertising. Coalition Technologies is the agency to help drive traffic to your website and convert those visitors into customers or qualified leads.";
 
             /** Post data to the API.
              * @param {string} excerpt is being passed as a custom key.
@@ -44,6 +49,11 @@
             })
                 .then((response) => response.json())
                 .then((json) => {
+
+                    // Unhide the post content div
+                    const postContent = document.querySelector('.post-content');
+                    postContent.style.display = 'block';
+
                     // Display the response in the html elements respectively
                     const titleElement = document.querySelector('.title');
                     const excerptElement = document.querySelector('.excerpt');
